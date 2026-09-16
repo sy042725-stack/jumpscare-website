@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-screen" id="welcomeScreen">
+            <h1>🎮 Welcome to the Game 🎮</h1>
+            <p>Click the button below to begin your adventure...</p>
+            <button class="start-btn" onclick="startGame()">START GAME</button>
+        </div>
+
+        <div class="game-screen hidden" id="gameScreen">
+            <div class="game-content">
+                <h2 id="gameText">Find what's hidden in the darkness...</h2>
+                <p id="hint">Look carefully... something is watching...</p>
+                <button class="search-btn" onclick="triggerScare()">🔦 Search</button>
+                <button class="search-btn" onclick="triggerScare()">🔍 Look Around</button>
+                <button class="search-btn" onclick="triggerScare()">👁️ Open Your Eyes</button>
+            </div>
+        </div>
+
+        <div class="scare-screen hidden" id="scareScreen">
+            <img id="scareImage" src="" alt="Jumpscare">
+            <audio id="scareSound" autoplay>
+                <source src="" type="audio/mpeg">
+            </audio>
+            <div class="scare-text">GOTCHA!</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

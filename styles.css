@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-screen {
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+}
+
+.welcome-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.welcome-screen p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #aaa;
+}
+
+.start-btn, .search-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.start-btn:hover, .search-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(231, 76, 60, 1);
+}
+
+.start-btn:active, .search-btn:active {
+    transform: scale(0.95);
+}
+
+.game-screen {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    border-radius: 10px;
+    border: 2px solid #e74c3c;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.game-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.game-screen p {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.game-content {
+    min-height: 300px;
+}
+
+.scare-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: jumpscareIn 0.1s ease-in;
+}
+
+.scare-screen img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    animation: scaleUp 0.2s ease-in;
+}
+
+.scare-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: bold;
+    color: #e74c3c;
+    text-shadow: 0 0 20px #e74c3c, 0 0 40px #c0392b;
+    animation: textPulse 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes jumpscareIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes textPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 600px) {
+    .welcome-screen h1 {
+        font-size: 2rem;
+    }
+
+    .start-btn, .search-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .game-screen {
+        padding: 30px;
+    }
+
+    .scare-text {
+        font-size: 3rem;
+    }
+}
